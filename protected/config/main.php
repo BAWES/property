@@ -56,10 +56,10 @@ return array(
              */
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=testdrive',
+			'connectionString' => 'mysql:host=localhost;dbname=khalidm_property',
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '',
+			'username' => 'khalidm_propuser',
+			'password' => 'proppass',
 			'charset' => 'utf8',
 		),
 		
