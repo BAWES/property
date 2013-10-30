@@ -51,9 +51,9 @@
 	<div class="clear"></div>
 
 	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> Zain.<br/>
+		Copyright &copy; <?php echo date('Y'); ?> Khalid Al-Mutawa.<br/>
 		All Rights Reserved.<br/>
-		Powered by Ghaliah Technology
+		Powered by Khalidm.net
 	</div><!-- footer -->
 
 </div><!-- page -->
