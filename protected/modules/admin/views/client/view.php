@@ -8,11 +8,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Client', 'url'=>array('index')),
+	array('label'=>'List Clients', 'url'=>array('index')),
 	array('label'=>'Create Client', 'url'=>array('create')),
 	array('label'=>'Update Client', 'url'=>array('update', 'id'=>$model->client_id)),
 	array('label'=>'Delete Client', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->client_id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Client', 'url'=>array('admin')),
 );
 ?>
 
