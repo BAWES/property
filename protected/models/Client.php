@@ -14,6 +14,8 @@
  */
 class Client extends CActiveRecord {
 
+    private $salt = "28b206548469ce62182048fd9cf91760";
+    private $oldPassword;
     /**
      * @return string the associated database table name
      */
@@ -30,12 +32,25 @@ class Client extends CActiveRecord {
         return array(
             array('client_name, client_email, client_password', 'required'),
             array('client_email','email'),
+            array('client_password','rehashPassword','on'=>'update'),
             array('client_name, client_email', 'length', 'max' => 200),
             array('client_password', 'length', 'max' => 128),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
             array('client_id, client_name, client_email, client_password', 'safe', 'on' => 'search'),
         );
+    }
+    
+    public function rehashPassword($attribute, $params) {
+        if($this->oldPassword != $this->client_password)
+            $this->client_password = $this->hashPassword($this->client_password, $this->salt);
+    }
+    
+    protected function afterFind() {
+        // store old password for validation
+        $this->oldPassword = $this->client_password;
+
+        parent::afterFind();
     }
     
     protected function beforeSave() {
