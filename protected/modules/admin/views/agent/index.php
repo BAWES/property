@@ -32,10 +32,10 @@ $('.search-form form').submit(function(){
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'agent_id',
+		//'agent_id',
 		'agent_name',
 		'agent_email',
-		'agent_password',
+		//'agent_password',
 		array(
 			'class'=>'CButtonColumn',
 		),

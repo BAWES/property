@@ -4,7 +4,7 @@
 
 $this->breadcrumbs=array(
 	'Agents'=>array('index'),
-	$model->agent_id=>array('view','id'=>$model->agent_id),
+	$model->agent_name=>array('view','id'=>$model->agent_id),
 	'Update',
 );
 
@@ -15,6 +15,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update Agent <?php echo $model->agent_id; ?></h1>
+<h1>Update Agent <?php echo $model->agent_name; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

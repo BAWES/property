@@ -4,7 +4,7 @@
 
 $this->breadcrumbs=array(
 	'Clients'=>array('index'),
-	$model->client_id,
+	$model->client_name,
 );
 
 $this->menu=array(
@@ -15,12 +15,12 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Client #<?php echo $model->client_id; ?></h1>
+<h1>View Client <?php echo $model->client_name; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'client_id',
+		//'client_id',
 		'client_name',
 		'client_email',
 		'client_password',
