@@ -6,6 +6,8 @@
  * The followings are the available columns in table 'tenant':
  * @property integer $tenant_id
  * @property string $tenant_name
+ * @property string $tenant_email
+ * @property string $tenant_password
  * @property string $tenant_civil_id
  * @property string $tenant_marital_status
  * @property integer $tenant_number_ppl
@@ -38,15 +40,16 @@ class Tenant extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('tenant_name, tenant_civil_id, tenant_marital_status, tenant_number_ppl, tenant_passport_num, tenant_employer_detail, tenant_phone1, tenant_phone2, tenant_phone3, tenant_phone4', 'required'),
+			array('tenant_name, tenant_email, tenant_password, tenant_civil_id, tenant_marital_status, tenant_number_ppl, tenant_passport_num, tenant_employer_detail, tenant_phone1, tenant_phone2, tenant_phone3, tenant_phone4', 'required'),
 			array('tenant_number_ppl', 'numerical', 'integerOnly'=>true),
 			array('tenant_name', 'length', 'max'=>200),
+			array('tenant_email, tenant_password', 'length', 'max'=>128),
 			array('tenant_civil_id, tenant_passport_num', 'length', 'max'=>80),
 			array('tenant_marital_status', 'length', 'max'=>7),
 			array('tenant_phone1, tenant_phone2, tenant_phone3, tenant_phone4', 'length', 'max'=>40),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('tenant_id, tenant_name, tenant_civil_id, tenant_marital_status, tenant_number_ppl, tenant_passport_num, tenant_employer_detail, tenant_phone1, tenant_phone2, tenant_phone3, tenant_phone4', 'safe', 'on'=>'search'),
+			array('tenant_id, tenant_name, tenant_email, tenant_password, tenant_civil_id, tenant_marital_status, tenant_number_ppl, tenant_passport_num, tenant_employer_detail, tenant_phone1, tenant_phone2, tenant_phone3, tenant_phone4', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -71,6 +74,8 @@ class Tenant extends CActiveRecord
 		return array(
 			'tenant_id' => 'Tenant',
 			'tenant_name' => 'Tenant Name',
+			'tenant_email' => 'Tenant Email',
+			'tenant_password' => 'Tenant Password',
 			'tenant_civil_id' => 'Tenant Civil',
 			'tenant_marital_status' => 'Tenant Marital Status',
 			'tenant_number_ppl' => 'Tenant Number Ppl',
@@ -103,6 +108,8 @@ class Tenant extends CActiveRecord
 
 		$criteria->compare('tenant_id',$this->tenant_id);
 		$criteria->compare('tenant_name',$this->tenant_name,true);
+		$criteria->compare('tenant_email',$this->tenant_email,true);
+		$criteria->compare('tenant_password',$this->tenant_password,true);
 		$criteria->compare('tenant_civil_id',$this->tenant_civil_id,true);
 		$criteria->compare('tenant_marital_status',$this->tenant_marital_status,true);
 		$criteria->compare('tenant_number_ppl',$this->tenant_number_ppl);

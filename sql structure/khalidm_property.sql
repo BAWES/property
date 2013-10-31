@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 28, 2013 at 11:47 PM
+-- Generation Time: Oct 31, 2013 at 10:17 AM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -34,7 +34,14 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `admin_email` varchar(200) NOT NULL,
   `admin_password` varchar(128) NOT NULL,
   PRIMARY KEY (`admin_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`admin_id`, `admin_name`, `admin_email`, `admin_password`) VALUES
+(1, 'Khalid', 'khalid@khalidm.net', 'bb752c04cc05bc3ac00dcb09f2eba17a');
 
 -- --------------------------------------------------------
 
@@ -48,7 +55,14 @@ CREATE TABLE IF NOT EXISTS `agent` (
   `agent_email` varchar(200) NOT NULL,
   `agent_password` varchar(128) NOT NULL,
   PRIMARY KEY (`agent_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `agent`
+--
+
+INSERT INTO `agent` (`agent_id`, `agent_name`, `agent_email`, `agent_password`) VALUES
+(1, 'k', 'k@ka.com', '51dbd2fe5b7709f4d2327a4e8a1a3748');
 
 -- --------------------------------------------------------
 
@@ -76,7 +90,16 @@ CREATE TABLE IF NOT EXISTS `area` (
   `area_id` int(11) NOT NULL AUTO_INCREMENT,
   `area_name` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`area_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Areas to define location of buildings' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='Areas to define location of buildings' AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `area`
+--
+
+INSERT INTO `area` (`area_id`, `area_name`) VALUES
+(1, 'Mishref'),
+(2, 'Hawally'),
+(3, 'Salmiya');
 
 -- --------------------------------------------------------
 
@@ -107,7 +130,15 @@ CREATE TABLE IF NOT EXISTS `client` (
   `client_email` varchar(200) NOT NULL,
   `client_password` varchar(128) NOT NULL,
   PRIMARY KEY (`client_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `client`
+--
+
+INSERT INTO `client` (`client_id`, `client_name`, `client_email`, `client_password`) VALUES
+(1, 'khlid', 'af@a.co', 'bb752c04cc05bc3ac00dcb09f2eba17a'),
+(2, 'dwad', 'dwad@dad.com', '79e46ece6b4f90b400a453529be7f015');
 
 -- --------------------------------------------------------
 
@@ -153,6 +184,8 @@ CREATE TABLE IF NOT EXISTS `invoice` (
 CREATE TABLE IF NOT EXISTS `tenant` (
   `tenant_id` int(11) NOT NULL AUTO_INCREMENT,
   `tenant_name` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `tenant_email` varchar(128) NOT NULL,
+  `tenant_password` varchar(128) NOT NULL,
   `tenant_civil_id` varchar(80) NOT NULL,
   `tenant_marital_status` enum('single','married') NOT NULL,
   `tenant_number_ppl` int(11) NOT NULL COMMENT 'Number of people tenant is living with',
