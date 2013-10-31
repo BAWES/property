@@ -42,3 +42,7 @@ $this->widget('zii.widgets.CDetailView', array(
     ),
 ));
 ?>
+<br/>
+<h2>Related Files</h2>
+
+<p>All files related to this tenant will be here</p>

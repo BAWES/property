@@ -33,13 +33,13 @@ $('.search-form form').submit(function(){
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'tenant_id',
+		//'tenant_id',
 		'tenant_name',
 		'tenant_email',
+            /*
 		'tenant_password',
 		'tenant_civil_id',
 		'tenant_marital_status',
-		/*
 		'tenant_number_ppl',
 		'tenant_passport_num',
 		'tenant_employer_detail',
