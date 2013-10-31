@@ -1,6 +1,6 @@
 <?php
 
-class AreaController extends Controller
+class TenantController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -10,32 +10,21 @@ class AreaController extends Controller
 
 
 	/**
-	 * Displays a particular model.
-	 * @param integer $id the ID of the model to be displayed
-	 */
-	public function actionView($id)
-	{
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
-	}
-
-	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
 	public function actionCreate()
 	{
-		$model=new Area;
+		$model=new Tenant;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Area']))
+		if(isset($_POST['Tenant']))
 		{
-			$model->attributes=$_POST['Area'];
+			$model->attributes=$_POST['Tenant'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->area_id));
+				$this->redirect(array('view','id'=>$model->tenant_id));
 		}
 
 		$this->render('create',array(
@@ -55,11 +44,11 @@ class AreaController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Area']))
+		if(isset($_POST['Tenant']))
 		{
-			$model->attributes=$_POST['Area'];
+			$model->attributes=$_POST['Tenant'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->area_id));
+				$this->redirect(array('view','id'=>$model->tenant_id));
 		}
 
 		$this->render('update',array(
@@ -87,10 +76,10 @@ class AreaController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$model=new Area('search');
+		$model=new Tenant('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Area']))
-			$model->attributes=$_GET['Area'];
+		if(isset($_GET['Tenant']))
+			$model->attributes=$_GET['Tenant'];
 
 		$this->render('index',array(
 			'model'=>$model,
@@ -101,12 +90,12 @@ class AreaController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Area the loaded model
+	 * @return Tenant the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Area::model()->findByPk($id);
+		$model=Tenant::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -114,11 +103,11 @@ class AreaController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Area $model the model to be validated
+	 * @param Tenant $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='area-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='tenant-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
