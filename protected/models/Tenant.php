@@ -40,7 +40,7 @@ class Tenant extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('tenant_name, tenant_email, tenant_password, tenant_civil_id, tenant_marital_status, tenant_number_ppl, tenant_passport_num, tenant_employer_detail, tenant_phone1, tenant_phone2, tenant_phone3, tenant_phone4', 'required'),
+			array('tenant_name, tenant_email, tenant_password, tenant_civil_id, tenant_marital_status, tenant_number_ppl, tenant_passport_num, tenant_employer_detail, tenant_phone1', 'required'),
 			array('tenant_number_ppl', 'numerical', 'integerOnly'=>true),
 			array('tenant_name', 'length', 'max'=>200),
 			array('tenant_email, tenant_password', 'length', 'max'=>128),
