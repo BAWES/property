@@ -33,7 +33,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'tenant_password'); ?>
-		<?php echo $form->textField($model,'tenant_password',array('size'=>60,'maxlength'=>128)); ?>
+		<?php echo $form->passwordField($model,'tenant_password',array('size'=>60,'maxlength'=>128)); ?>
 		<?php echo $form->error($model,'tenant_password'); ?>
 	</div>
 

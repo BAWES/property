@@ -15,6 +15,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update Tenant <?php echo $model->tenant_id; ?></h1>
+<h1>Update Tenant <?php echo $model->tenant_name; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>
