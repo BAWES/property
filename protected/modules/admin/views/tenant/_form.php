@@ -45,7 +45,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'tenant_marital_status'); ?>
-		<?php echo $form->textField($model,'tenant_marital_status',array('size'=>7,'maxlength'=>7)); ?>
+		<?php echo $form->dropDownList($model,'tenant_marital_status',array('single'=>'Single','married'=>'Married')); ?>
 		<?php echo $form->error($model,'tenant_marital_status'); ?>
 	</div>
 

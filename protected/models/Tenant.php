@@ -41,7 +41,8 @@ class Tenant extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('tenant_name, tenant_email, tenant_password, tenant_civil_id, tenant_marital_status, tenant_number_ppl, tenant_passport_num, tenant_employer_detail, tenant_phone1', 'required'),
-			array('tenant_number_ppl', 'numerical', 'integerOnly'=>true),
+			array('tenant_number_ppl, tenant_civil_id, tenant_passport_num', 'numerical', 'integerOnly'=>true),
+			array('tenant_email', 'email'),
 			array('tenant_name', 'length', 'max'=>200),
 			array('tenant_email, tenant_password', 'length', 'max'=>128),
 			array('tenant_civil_id, tenant_passport_num', 'length', 'max'=>80),
@@ -73,18 +74,18 @@ class Tenant extends CActiveRecord
 	{
 		return array(
 			'tenant_id' => 'Tenant',
-			'tenant_name' => 'Tenant Name',
-			'tenant_email' => 'Tenant Email',
-			'tenant_password' => 'Tenant Password',
-			'tenant_civil_id' => 'Tenant Civil',
-			'tenant_marital_status' => 'Tenant Marital Status',
-			'tenant_number_ppl' => 'Tenant Number Ppl',
-			'tenant_passport_num' => 'Tenant Passport Num',
-			'tenant_employer_detail' => 'Tenant Employer Detail',
-			'tenant_phone1' => 'Tenant Phone1',
-			'tenant_phone2' => 'Tenant Phone2',
-			'tenant_phone3' => 'Tenant Phone3',
-			'tenant_phone4' => 'Tenant Phone4',
+			'tenant_name' => 'Name',
+			'tenant_email' => 'Email',
+			'tenant_password' => 'Password',
+			'tenant_civil_id' => 'CivilID',
+			'tenant_marital_status' => 'Marital Status',
+			'tenant_number_ppl' => 'Number of people living with',
+			'tenant_passport_num' => 'Passport Number',
+			'tenant_employer_detail' => 'Employer Detail',
+			'tenant_phone1' => 'Phone 1',
+			'tenant_phone2' => 'Phone 2',
+			'tenant_phone3' => 'Phone 3',
+			'tenant_phone4' => 'Phone 4',
 		);
 	}
 
